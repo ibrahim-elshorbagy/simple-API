@@ -7,7 +7,8 @@ declare(strict_types=1);
 spl_autoload_register(function($class){
     require __DIR__ . "/src/$class.php";
 });
-
+set_error_handler("Errorhandler::handelError");
+set_exception_handler("ErrorHandler::handlerException");
 
 
 $data= file_get_contents("https://official-joke-api.appspot.com/random_joke");
